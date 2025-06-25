@@ -1,4 +1,3 @@
-
 namespace Domain.Entities;
 
 public class ContaBancaria
@@ -17,8 +16,6 @@ public class ContaBancaria
     }
 
     public void Deposito(double valor) => Saldo += valor;
-
     public void Saque(double valor) => Saldo -= valor + TaxaSaque;
 
-    public void AlterarTitular(string novoTitular) => Titular = novoTitular;
 }

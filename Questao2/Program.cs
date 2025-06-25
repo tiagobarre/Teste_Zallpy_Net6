@@ -1,30 +1,21 @@
-﻿using Newtonsoft.Json;
+﻿using Questao2.Aplication.Services;
 
-public class Program
+class Program
 {
-    public static void Main()
+    static async Task Main()
     {
+        GolsServices _golsServices = new GolsServices();
         string teamName = "Paris Saint-Germain";
         int year = 2013;
-        int totalGoals = getTotalScoredGoals(teamName, year);
+        int totalGoals = await _golsServices.GetTotalScoredGoals(teamName, year);
 
-        Console.WriteLine("Team "+ teamName +" scored "+ totalGoals.ToString() + " goals in "+ year);
+        Console.WriteLine("Team " + teamName + " scored " + totalGoals + " goals in " + year);
 
         teamName = "Chelsea";
         year = 2014;
-        totalGoals = getTotalScoredGoals(teamName, year);
+        totalGoals = await _golsServices.GetTotalScoredGoals(teamName, year);
 
-        Console.WriteLine("Team " + teamName + " scored " + totalGoals.ToString() + " goals in " + year);
-
-        // Output expected:
-        // Team Paris Saint - Germain scored 109 goals in 2013
-        // Team Chelsea scored 92 goals in 2014
+        Console.WriteLine("Team " + teamName + " scored " + totalGoals + " goals in " + year);
     }
-
-    public static int getTotalScoredGoals(string team, int year)
-    {
-        
-        return 0;
-    }
-
+  
 }
